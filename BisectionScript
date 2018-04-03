@@ -2,8 +2,8 @@ function func (x, numCuotas, valorMensual, valorContado) {
     return valorMensual*((Math.pow(1+x,numCuotas)-1)/(x*Math.pow(1+x,numCuotas)))-valorContado;    
 }
 
-function bisection (func, cuotaMensual, valorContado, numCuotas) {
-    var cotaInf = 0.001;
+function bisection (valorMensual, valorContado, numCuotas) {
+    var cotaInf = 0.0001;
     var cotaSup = 1;
 
     fInf = func(cotaInf, numCuotas, valorMensual, valorContado);
@@ -14,7 +14,7 @@ function bisection (func, cuotaMensual, valorContado, numCuotas) {
 
     var xMid, fSup, fInf, fMid;
     var iter = 0;
-    while (iter < 100000) {
+    while (iter < 1000) {
         ++iter;
         xMid = (xInf+xSup)/2;
         fMid = func(xMid, numCuotas, valorMensual, valorContado);
